@@ -32,7 +32,7 @@ def cnn_model():
 
     model.trainable = False
     model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
-    model.load_weights("D:/Programlama/Python/Projects/emergency/nn_model/trained_models/model_weights.hdf5")
+    model.load_weights('D:/Programlama/Python/Projects/emergency/nn_model/nn_model/trained_models/model_weights.hdf5')
 
     return model
 
@@ -41,4 +41,3 @@ if __name__ == "__main__":
 
     main_model = cnn_model()
     main_model.summary()
-
