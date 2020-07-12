@@ -1,0 +1,17 @@
+include *.txt
+include *.md
+include *.cfg
+include *.pkl
+recursive-include ./nn_model/*.py
+
+include nn_model/trained_models/*.pkl
+include nn_model/trained_models/*.hdf5
+include nn_model/dataset/images/0.png
+include nn_model/dataset/images/176.png
+include nn_model/VERSION
+
+include ./requirements.txt
+exclude *.log
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
