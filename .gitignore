@@ -118,7 +118,6 @@ test.csv
 logs/
 
 # trained models (will be created in CI)
-
 nn_model/trained_models/*.pkl
 nn_model/trained_models/*.h5
 *.h5
