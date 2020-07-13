@@ -2,7 +2,7 @@ import cv2
 from pathlib import Path
 import numpy as np
 from typing import Union
-from urllib.request import urlopen, urlretrieve
+from urllib.request import urlopen
 import os
 import logging
 

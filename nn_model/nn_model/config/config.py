@@ -4,7 +4,7 @@ import sys
 
 PWD = os.path.dirname(os.path.abspath(__file__))
 PACKAGE_ROOT = os.path.abspath(os.path.join(PWD,".."))
-DATASET_DIR = os.path.join(PACKAGE_ROOT, "datasets")
+DATASET_DIR = os.path.join(PACKAGE_ROOT, "dataset")
 
 IMAGES_DIR = os.path.join(DATASET_DIR,"images")
 
