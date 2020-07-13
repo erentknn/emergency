@@ -9,7 +9,7 @@ def test_make_prediction_sample():
     result = make_single_prediction(im_path=config.IMAGES_DIR/filename)
 
     assert result is not None
-    assert result == expected_classification
+    assert result[0] == expected_classification
 
     filename2 = "176.jpg"
 
@@ -18,7 +18,7 @@ def test_make_prediction_sample():
     result2 = make_single_prediction(im_path=config.IMAGES_DIR/filename2)
 
     assert result2 is not None
-    assert result2 == expected_classification2
+    assert result2[0] == expected_classification2
 
 
 test_make_prediction_sample()
