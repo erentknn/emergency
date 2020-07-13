@@ -38,10 +38,3 @@ def make_single_prediction(im_path: str):
     )
 
     return result, proba
-
-
-if __name__ == "__main__":
-    start_time = time.time()
-    make_single_prediction(
-        im_path="https://devirsaati.com/wp-content/uploads/2020/05/Nissan-EV-Ambulance-Exterior-source.jpg")
-    print("time elapsed(model-load): {:.2f}s".format(time.time() - start_time))
