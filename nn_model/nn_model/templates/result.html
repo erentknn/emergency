@@ -3,19 +3,31 @@
 
   <head>
 
-    <title>EmergencyDataset Image Upload</title>
+    <title>Result</title>
 
   </head>
 
    <body>
-     <h1 style="text-align:center">You can upload any image for classification.</h1>
-      <form action = "{{ url_for('process_img_upload') }}" method = "POST"
-         enctype = "multipart/form-data" style="text-align:center">
-         <input type = "file" name = "image" />
-         <br>
-         <br>
-         <input type = "submit" value = "Get Result"/ style="font-size:300%;text-align:center">
-      </form>
+
+    <h1 style="text-align:center">nn_model Result</h1>
+
+    <form action = "{{ url_for('upload_file') }}"
+          style="text-align:center">
+       <input type="submit" value="New Request" />
+    </form>
+    <br>
+    <div align=center>
+        <img src="{{ Filename }}" alt="Vehicle"
+             style="border:1px solid red; width: 112px; height: 112px;">
+    </div>
+
+    <p align=center>Detected Class:</p>
+    <p align=center>Result:</p>
+    <p style="text-align:center;font-size:20px;color:darkblue">{{ Result }}</p>
+    <p align=center>Confidence:</p>
+    <p style="text-align:center;font-size:20px;color:darkblue">{{ Confidence }}</p>
+    <br>
+    <br>
 
    </body>
 </html>

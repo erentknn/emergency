@@ -4,6 +4,9 @@ from tensorflow.keras.applications import ResNet50V2
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout
 import numpy as np
+import logging
+
+_logger = logging.getLogger((__name__))
 
 base_model = ResNet50V2(include_top=False, weights="imagenet", input_shape=(224,224,3), pooling="avg")
 
