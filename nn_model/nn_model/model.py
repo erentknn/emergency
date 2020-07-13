@@ -1,9 +1,8 @@
-import pandas as pd
 from nn_model.config import config
 from tensorflow.keras.applications import ResNet50V2
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout
-import numpy as np
+import os
 import logging
 
 _logger = logging.getLogger((__name__))
@@ -35,7 +34,7 @@ def cnn_model():
 
     model.trainable = False
     model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
-    model.load_weights(str(config.TRAINED_MODEL_DIR/'model_weights.hdf5'))
+    model.load_weights(os.path.join(config.TRAINED_MODEL_DIR, "model_weights.hdf5"))
 
     return model
 
