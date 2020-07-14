@@ -4,7 +4,7 @@ pandas >= 1.0.4
 numpy >= 1.18.1
 joblib >= 0.14.1
 tensorflow-cpu >= 2.1.0
-opencv-python >= 4.3.0
+opencv-python-headless >= 4.3.0
 werkzeug >= 0.16.1
 
 # testing requirements
