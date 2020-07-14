@@ -69,7 +69,7 @@ def pred(filename):
 
 
 def main():
-    app.run(debug=False)
+    app.run (debug=False)
 
 
 if __name__ == "__main__":
