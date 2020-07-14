@@ -1,4 +1,4 @@
-from nn_model.config import config
+from nn_model.nn_model.config import config
 from tensorflow.keras.applications import ResNet50V2
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout

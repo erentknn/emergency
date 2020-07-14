@@ -4,7 +4,7 @@ import logging
 from flask import Flask, flash, request, url_for, render_template, redirect, send_from_directory, jsonify
 from werkzeug.utils import secure_filename
 from nn_model.nn_model import predict
-from nn_model.config import config
+from nn_model.nn_model.config import config
 
 _logger = logging.getLogger(__name__)
 

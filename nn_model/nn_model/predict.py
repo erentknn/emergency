@@ -1,6 +1,6 @@
 import numpy as np
-from nn_model import data_management as dm
-from nn_model import model
+from nn_model.nn_model import data_management as dm
+from nn_model.nn_model import model
 import cv2
 import logging
 
