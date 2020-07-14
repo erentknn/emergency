@@ -44,7 +44,7 @@ def upload_file():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+            file.save(os.path.join(app.config["UPLOAD_FOLDER"], f"{filename}"))
             outcome["Filename"] = url_for("uploaded_file", filename=filename)
             _logger.info("image uploaded and sent to prediction")
             return redirect(url_for("pred", filename=filename))
@@ -53,13 +53,13 @@ def upload_file():
 
 @app.route("/uploads/<filename>")
 def uploaded_file(filename):
-    return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
+    return send_from_directory(os.path.join(app.config["UPLOAD_FOLDER"]), filename)
 
 
 @app.route("/predict/<filename>", methods=["GET", "POST"])
 def pred(filename):
     K.clear_session()
-    result, proba = predict.make_single_prediction(app.config["UPLOAD_FOLDER"] / filename)
+    result, proba = predict.make_single_prediction(os.path.join(app.config["UPLOAD_FOLDER"], f"{filename}"))
     print("Confidence: {}".format(proba))
     print("Result: {}".format(result))
     outcome["Result"] = int(result)
