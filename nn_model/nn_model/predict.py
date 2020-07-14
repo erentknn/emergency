@@ -1,12 +1,7 @@
 import numpy as np
-from typing import Union
-from tensorflow.keras.preprocessing import image
 from nn_model import data_management as dm
 from nn_model import model
-from pathlib import Path
 import cv2
-import tensorflow
-import time
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -15,9 +10,7 @@ _logger = logging.getLogger(__name__)
 def make_single_prediction(im_path: str):
 
     img = dm.read_image(im_path)
-    img = cv2.resize(img, dsize=(224,224))
-
-    org = img.copy()
+    img = cv2.resize(img, dsize=(224, 224))
     img = img.astype(float)
     img *= 1./255
     img = np.expand_dims(img, axis=0)
