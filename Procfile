@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath nn-model/nn_model --access-logfile - --error-logfile - app:app
+web: gunicorn --access-logfile - --error-logfile - app:app
