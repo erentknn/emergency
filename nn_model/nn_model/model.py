@@ -1,7 +1,7 @@
 from nn_model.nn_model.config import config
-from keras.applications import ResNet50V2
-from keras.models import Sequential
-from keras.layers import Dense, Dropout
+from tensorflow.keras.applications import ResNet50V2
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout
 import os
 import logging
 
