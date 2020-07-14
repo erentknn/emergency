@@ -126,4 +126,3 @@ nn_model/trained_models/*.h5
 .DS_Store
 
 kaggle.json
-packages/ml_api/uploads/*
