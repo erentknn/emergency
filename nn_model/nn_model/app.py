@@ -10,10 +10,10 @@ from nn_model.config import config
 
 _logger = logging.getLogger(__name__)
 
-app = Flask("nn_model")
-app.config["UPLOAD_FOLDER"] = config.TEMP_IMAGE_DIR
-app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024
-app.secret_key = "K8pl6793AsqrT1Hd3"
+application = Flask("nn_model")
+application.config["UPLOAD_FOLDER"] = config.TEMP_IMAGE_DIR
+application.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024
+application.secret_key = "K8pl6793AsqrT1Hd3"
 outcome = {}
 
 
@@ -22,14 +22,14 @@ def allowed_file(filename):
             filename.rsplit(".", 1)[1].lower() in config.ALLOWED_EXTENSIONS
 
 
-@app.route("/health", methods=["GET"])
+@application.route("/health", methods=["GET"])
 def health():
     if request.method == "GET":
         _logger.info("health status OK")
         return "ok"
 
 
-@app.route("/", methods=["GET", "POST"])
+@application.route("/", methods=["GET", "POST"])
 def upload_file():
     if request.method == "POST":
         # check if the post request has the file part
@@ -44,22 +44,22 @@ def upload_file():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config["UPLOAD_FOLDER"], f"{filename}"))
+            file.save(os.path.join(application.config["UPLOAD_FOLDER"], f"{filename}"))
             outcome["Filename"] = url_for("uploaded_file", filename=filename)
             _logger.info("image uploaded and sent to prediction")
             return redirect(url_for("pred", filename=filename))
     return render_template('img_upload.html')
 
 
-@app.route("/uploads/<filename>")
+@application.route("/uploads/<filename>")
 def uploaded_file(filename):
-    return send_from_directory(os.path.join(app.config["UPLOAD_FOLDER"]), filename)
+    return send_from_directory(os.path.join(application.config["UPLOAD_FOLDER"]), filename)
 
 
-@app.route("/predict/<filename>", methods=["GET", "POST"])
+@application.route("/predict/<filename>", methods=["GET", "POST"])
 def pred(filename):
     K.clear_session()
-    result, proba = predict.make_single_prediction(os.path.join(app.config["UPLOAD_FOLDER"], f"{filename}"))
+    result, proba = predict.make_single_prediction(os.path.join(application.config["UPLOAD_FOLDER"], f"{filename}"))
     print("Confidence: {}".format(proba))
     print("Result: {}".format(result))
     outcome["Result"] = int(result)
@@ -69,7 +69,7 @@ def pred(filename):
 
 
 def main():
-    app.run(host="0.0.0.0", port=5000, debug=False)
+    application.run(host="0.0.0.0", port=5000, debug=False)
 
 
 if __name__ == "__main__":
