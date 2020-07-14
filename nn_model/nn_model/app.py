@@ -57,8 +57,6 @@ def uploaded_file(filename):
 @application.route("/predict/<filename>", methods=["GET", "POST"])
 def pred(filename):
     result, proba = predict.make_single_prediction(os.path.join(application.config["UPLOAD_FOLDER"], f"{filename}"))
-    print("Confidence: {}".format(proba))
-    print("Result: {}".format(result))
     outcome["Result"] = int(result)
     outcome["Confidence"] = round(float(proba), 3)
     _logger.info("prediction made and result sent")
@@ -66,7 +64,7 @@ def pred(filename):
 
 
 def main():
-    application.run(host="0.0.0.0", port=5000, debug=False)
+    application.run()
 
 
 if __name__ == "__main__":
