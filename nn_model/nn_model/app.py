@@ -3,7 +3,6 @@ import logging
 
 from flask import Flask, flash, request, url_for, render_template, redirect, send_from_directory, jsonify
 from werkzeug.utils import secure_filename
-import tensorflow-cpu.keras.backend as K
 from nn_model import predict
 
 from nn_model.config import config
@@ -58,7 +57,6 @@ def uploaded_file(filename):
 
 @application.route("/predict/<filename>", methods=["GET", "POST"])
 def pred(filename):
-    K.clear_session()
     result, proba = predict.make_single_prediction(os.path.join(application.config["UPLOAD_FOLDER"], f"{filename}"))
     print("Confidence: {}".format(proba))
     print("Result: {}".format(result))
