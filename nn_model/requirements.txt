@@ -3,7 +3,7 @@ flask >= 1.1.2
 pandas >= 1.0.4
 numpy >= 1.18.1
 joblib >= 0.14.1
-tensorflow >= 2.1.0
+tensorflow-cpu >= 2.1.0
 opencv-python >= 4.3.0
 
 # testing requirements
