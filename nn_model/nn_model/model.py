@@ -5,9 +5,9 @@ from tensorflow.keras.layers import Dense, Dropout
 import os
 import logging
 
-_logger = logging.getLogger((__name__))
+_logger = logging.getLogger(__name__)
 
-base_model = ResNet50V2(include_top=False, weights="imagenet", input_shape=(224,224,3), pooling="avg")
+base_model = ResNet50V2(include_top=False, weights="imagenet", input_shape=(224, 224, 3), pooling="avg")
 
 asd = config.IMAGES_DIR
 
