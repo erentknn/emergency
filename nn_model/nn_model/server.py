@@ -3,7 +3,7 @@ import logging
 
 from flask import Flask, flash, request, url_for, render_template, redirect, send_from_directory, jsonify
 from werkzeug.utils import secure_filename
-import tensorflow.keras.backend as K
+import tensorflow-cpu.keras.backend as K
 from nn_model import predict
 
 from nn_model.config import config
