@@ -8,7 +8,7 @@ from nn_model.nn_model.config import config
 
 _logger = logging.getLogger(__name__)
 
-application = Flask("nn_model")
+application = Flask(__name__)
 application.config["UPLOAD_FOLDER"] = config.TEMP_IMAGE_DIR
 application.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024
 application.secret_key = "K8pl6793AsqrT1Hd3"
