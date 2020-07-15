@@ -1,5 +1,5 @@
-from nn_model.predict import make_single_prediction
-from nn_model.config import config
+from nn_model.nn_model.predict import make_single_prediction
+from nn_model.nn_model.config import config
 import os
 
 
