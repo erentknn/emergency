@@ -12,7 +12,7 @@ def test_make_prediction_sample():
     assert result is not None
     assert result[0] == expected_classification
 
-    filename2 = "176.jpg"
+    filename2 = "4.jpg"
 
     expected_classification2 = 1
 
